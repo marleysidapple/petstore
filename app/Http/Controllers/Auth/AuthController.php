@@ -22,7 +22,7 @@ class AuthController extends Controller
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
-    */
+     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -52,8 +52,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -66,10 +66,23 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'           => $data['name'],
+            'username'       => $data['email'],
+            'email'          => $data['email'],
+            'password'       => bcrypt($data['password']),
+            'street_address' => $data['address'],
+            'apt'            => $data['ap_st'],
+            'city'           => $data['city'],
+            'role_id'        => 3,
+            'state_id'       => $data['state'],
+            'zip'            => "",
+            'phone_number'   => $data['phone_number'],
+            'fax_number'     => "",
+            'website'        => $data['website'],
+            'tax_id'         => $data['tax_id'],
+
         ]);
     }
 
@@ -95,9 +108,10 @@ class AuthController extends Controller
         }
 
         $credentials = $this->getCredentials($request);
-        $user = $userService->findByEmail($credentials['email']);
+        $user        = $userService->findByEmail($credentials['email']);
 
-        if((bool)$user->is_approved) {
+
+        if ($user && (bool) $user->is_approved) {
             if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
                 return $this->handleUserWasAuthenticated($request, $throttles);
             }
@@ -106,11 +120,10 @@ class AuthController extends Controller
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
-        if ($throttles && ! $lockedOut) {
+        if ($throttles && !$lockedOut) {
             $this->incrementLoginAttempts($request);
         }
 
         return $this->sendFailedLoginResponse($request);
     }
 }
-    

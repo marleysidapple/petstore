@@ -1,5 +1,7 @@
 @extends('layouts.app', ['bodyClass' => 'home'])
 
+
+
 @section('content')
 
 <!-- slider with banner start -->
@@ -35,9 +37,10 @@
         <h5>Our products might be interested you </h5>
         <div class="product-slide">
             <div id="owl-example" class="owl-carousel">
+
                 <?php foreach ($products as $product): ?>
                     <div class="item">
-                        <img src="<?= $product->featured_image ?>" alt="Touch">
+                        <img src="{{asset('images/'.$product->featured_image)}}" alt="Touch">
                         <a href="<?= route('products.show', $product->slug) ?>" class="slider-caption">
                             <strong><?= $product->name ?></strong>
                             <p><?= substr($product->description, 0, 100) ?></p>
@@ -106,7 +109,7 @@
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="dogscrew-content">
-                    <h5 style="color:#822727;">Royal Dog Chew</h5>
+                    <h5 style="color:#18aaf6;">Royal Dog Chew</h5>
                     <p>
                         The New <strong>Royal dog chew</strong> has arrived for your dog.100 % natural, <strong>authentic recipe</strong> and truly an <strong>artisan cheese</strong>. Royal Dog Chews are made from yak and local cow milk who depends on grasses, leaves, fodder and forage that grow in natural pasture and vegetation of higher altitude above <strong>15000 feet</strong> in the Himalayan region. 
                         Royal dog chew is created by the <strong>Himalayan artisan people</strong> using the centuries <strong>old traditional methods</strong>, utensils and tools. 

@@ -558,7 +558,7 @@ header .fa-bars {
 
 .dogscrew-content  p strong {
 	font-size: 1.2em;
-	color:#822727;
+	color:#18aaf6;
 }
 
 .dogscrew-content ul li {
@@ -3820,4 +3820,27 @@ header .logo-wrap a img  {
 
 .backend-menu li a {
 	color: #0098C9 !important;
+}
+
+
+.store-wrapper{
+	background: #efebeb;
+	/*padding: 15px;*/
+}
+
+
+.store-listing h4{
+	color: #00A59B;
+	font-size: 16px;
+}
+
+.store-listing .alllist{
+	margin-bottom: 20px;
+}
+
+
+.store-listing{
+	height: 350px;
+    overflow: hidden;
+    overflow-y: scroll;
 }

@@ -1,25 +1,23 @@
 <section class="second-menu">
     <ul>
         <li>
-            <a href="index.php">Home</a>
+            <a href="{{url('/')}}">Home</a>
         </li>
         <li>
-            <a href="about.php">About Us</a>
+            <a href="{{url('about-us')}}">About Us</a>
         </li>
         <li>
-            <a href="ourproducts.php">Our  Products</a>
+            <a href="{{url('our-products')}}">Our Products</a>
+        </li>
+       
+        <li>
+            <a href="{{url('stores-search')}}">Find US</a>
         </li>
         <li>
-            <a href="Nutrient.php">Nutrient </a>
+            <a href="{{url('contact-us')}}">Contact Us</a>
         </li>
         <li>
-            <a href="find-us.php">Find US</a>
-        </li>
-        <li>
-            <a href="contact.php">Contact Us</a>
-        </li>
-        <li>
-            <a href="sign.php">Retailed Sign In</a>
+            <a href="{{url('login')}}">Retailed Sign In</a>
         </li>
     </ul>
     <span class="fa fa-3x fa-close"></span>

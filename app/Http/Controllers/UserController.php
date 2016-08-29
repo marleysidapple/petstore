@@ -35,7 +35,9 @@ class UserController extends Controller
 
     public function update($username)
     {
-        $params = $this->request->all();
+
+        $params = $this->request->except(['_token', '_method']);
+       
         $validate = $this->validate->isValid($params);
 
         if(!$validate) {

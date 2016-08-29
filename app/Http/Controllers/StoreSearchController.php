@@ -7,6 +7,9 @@ use App\Services\StateService;
 use App\Services\StoreService;
 use App\Services\Validations\Validator;
 use Illuminate\Http\Request;
+use App\Store;
+use App\State;
+use GCH;
 
 class StoreSearchController extends Controller
 {
@@ -27,12 +30,18 @@ class StoreSearchController extends Controller
 
     public function index()
     {
-    	return view('stores.search');
-    	// $keyword = $this->request->only('keyword');
-
-    	// if(null === $keyword['keyword']) {
-    	// 	return view('stores.search');
-    	// }
+      /*  $allAdd = GCH::geolocate_address('');
+        dd($allAdd);*/
+        $stores = Store::all();
+        $latLng = [];
+        foreach ($stores as $key => $value) {
+            $coordinates = GCH::geolocate_address($value->street_address);  
+            $coordinates['storename'] = $value->store_name;
+            array_push($latLng, $coordinates);
+        }
+       
+        $states = State::all();
+    	return view('stores.search', compact(array('states', 'latLng')));
     }
 
     public function search()

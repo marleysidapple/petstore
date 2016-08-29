@@ -147,5 +147,6 @@
         
         <script src="<?= asset('js/main.js') ?>"></script>
         @yield('footer')
+        @yield('mainjs')
     </body>
 </html>

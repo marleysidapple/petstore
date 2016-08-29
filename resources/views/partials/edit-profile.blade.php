@@ -17,7 +17,7 @@
                       	</div>
                       	<div class="form-group col-xs-12 col-sm-6">
 	                        <label for="co-store">Co. Store</label>
-	                        <input type="text" name="company_store_name" class="form-control" id="co-store" placeholder="Email" value="<?= $user->company_store_name ?>" readonly="">
+	                        <input type="text" name="company_store_name" class="form-control" id="co-store" placeholder="Co. store name" value="<?= $user->company_store_name ?>" readonly="">
                       	</div>
                       	<div class="form-group col-xs-12 col-sm-6">
 	                        <label for="address">Address</label>
@@ -43,7 +43,7 @@
                       	</div>
                        	<div class="form-group col-xs-12 col-sm-6">
                          	<label for="zip">Zip</label>
-                          	<input type="text" name="zip" class="form-control" id="zip" placeholder="Zip" value=" Zip" readonly="">
+                          	<input type="text" name="zip" class="form-control" id="zip" placeholder="Zip" value=" <?= $user->zip ?>" readonly="">
                       	</div>
                       	<div class="form-group col-xs-12 col-sm-6">
                           	<label for="Phone">Phone</label>
@@ -76,7 +76,7 @@
                       	<div class="form-group col-xs-6 col-sm-6 breaks-all">
                         	<div class="manage">
                           		<a href="<?= route('stores.index') ?>" title="">Manage Store</a>
-                          		<a href="manage-retail.php" title="">Manage Retail Contact</a>
+                          		<a href="<?= route('retailer-contacts.index') ?>" title="">Manage Retail Contact</a>
                         	</div>
                       	</div>
                       	<div class="form-group col-xs-6 col-sm-6 breaks-all">

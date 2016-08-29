@@ -22,12 +22,12 @@
 								<div class="product-zoom-wrapper clearfix">
 									<div class="product-slider-container">
 										<div class="product-sliding">
-											<div id="main-image"> <img src="<?= $product->featured_image ?>" width="546" height="348"></div>
+											<div id="main-image"> <img src="{{asset('images/'.$product->featured_image)}}" width="546" height="348"></div>
 										</div>
 									</div>
 									<ul class="thumb-pic">
 										<?php foreach ($product->productGallery as $productGallery): ?>
-											<li><img src="<?= $productGallery->image ?>" width="100" height="64"></li>	
+											<li><img src="{{asset('images/'.$productGallery->image)}}" width="100" height="64"></li>	
 										<?php endforeach ?>
 									</ul>
 								</div>

@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <!-- find-us section start -->
 <section class="find-us-section">
   	<div class="container">
@@ -10,25 +11,31 @@
     		<div class="find-us-wrap">
       			<div class="col-lg-8 col-lg-offset-2 col-sm-12  ">
        				<div class="search clearfix">
-              			<form action="<?= route('search-results') ?>" method="get">
+              			<form action="<?=route('search-results')?>" method="get">
                 			<input type="text" name="keyword" size="4" placeholder="enter store name, street address, city or state">
                 			<button type="submit"class="btn btn-primary">find your Store</button>
               			</form>
         			</div>
-      			</div> 
+      			</div>
+
+      			<div class="col-lg-8 col-lg-offset-2 col-sm-12 store-wrapper">
+      				<div class="store-listing"> 
+	      				@foreach($states as $key => $val)
+	              			<h4>{{$val->name}}</h4>
+	              			<div class="row alllist">
+		              			@foreach($val->stores as $key => $newVal)
+	                				<div class="col-sm-3"><a href="#">{{$newVal->city}}</a></div>
+	                			@endforeach
+	              			</div>
+	              		@endforeach
+              		</div>
+      			</div>
+
+
       			<div class="find-us-content">
             		<ul>
-              			<li class="col-sm-4 ">
-                			<h4>Alabama</h4>
-                			<a href="find-us-inner.php">Daphne</a>
-			                <a href="#"> Dothan</a>
-			                <a href="#">Harpersville</a>
-			                <a href="#">Mobile</a>
-			                <a href="#">Montgomery</a>
-			                <a href="#">Northport</a>
-			                <a href="#">Vestavia hills</a>
-              			</li>
-			            <li class="col-sm-4">
+            		
+<!-- 			            <li class="col-sm-4">
 			                <h4>Alaska</h4>
 			                <a href="#">Anchorage</a>
 			                <a href="#"> Juneau</a>
@@ -95,12 +102,51 @@
 		                  	<a href="#"> Richmond</a>
 		                  	<a href="#"> south surrey</a>
 		                  	<a href="#"> surrey</a>
-		              	</li>
+		              	</li> -->
             		</ul>
       			</div>
 			</div>
       	</div>
   	</div>
 </section>
+
+<section class="map">
+	<div id="map" style="  width: 100%; height: 400px; margin-top:10px;"></div>
+</section>
 <!-- find-us section end  -->
+@endsection
+
+
+@section('mainjs')
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4k5tHUaJ09oMQNYi9MD6hv2cgOcndAso&callback=initMap"></script>
+<script>
+      function initMap() {
+      	var myLatLng = {lat: 44.540, lng: -78.546};
+      	var fetchedData = <?php echo json_encode($latLng); ?>;
+      	//console.log(fetchedData);
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: {lat: 44.540, lng: -78.546},
+            zoom: 5
+        });
+
+        /*var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });*/
+        var markers = [];
+        for (var i=0; i < fetchedData.length; i++){
+        	 var pos = new google.maps.LatLng(fetchedData[i].lat, fetchedData[i].lng);
+
+        	  markers[i] = new google.maps.Marker({
+		        position: pos,
+		        map: map,
+		        title: fetchedData[i].storename,
+		        id: i
+		    });
+        }
+
+}
+    </script>
 @endsection
