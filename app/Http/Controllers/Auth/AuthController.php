@@ -82,6 +82,7 @@ class AuthController extends Controller
             'fax_number'     => "",
             'website'        => $data['website'],
             'tax_id'         => $data['tax_id'],
+            'is_approved'    => 1,
 
         ]);
     }
