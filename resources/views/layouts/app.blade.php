@@ -56,18 +56,18 @@
                 <div class="row">
                     <div class="col-sm-2 col-xs-3 sides-by-side ">
                         <ul class="bottom-navigation-panel">
-                            <li><a href="about.php">About Us </a></li>
-                            <li><a href="#">FAQ </a></li>
-                            <li><a href="career.php">Career </a></li>
-                            <li><a href="find-us.php">Find Us </a></li>
+                            <li><a href="{{url('about-us')}}">About Us </a></li>
+                            <li><a href="{{url('faqs-list')}}">FAQ </a></li>
+                            <li><a href="{{url('our-products')}}">Our Products </a></li>
+                            <li><a href="{{url('stores-search')}}">Find Us </a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3 col-xs-4 sides-by-side  ">
                         <ul class="bottom-navigation-panel">
-                            <li><a href="creation.php">Royal Dog Chew</a></li>
-                            <li><a href="creation.php">yakySNACKS </a></li>
-                            <li><a href="creation.php">Ruff Roots </a></li>
-                            <li><a href="creation.php">leanlix </a></li>
+                            <li><a href="{{url('product-analysis')}}">Product Analysis</a></li>
+                            <li><a href="{{url('processing-collection')}}">Processing and Collection</a></li>
+                            <li><a href="{{url('quality-assurance')}}">Quality Assurance</a></li>
+                            <li><a href="{{url('gallery')}}">Photo Gallery</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-7 col-xs-5 breaks-all">

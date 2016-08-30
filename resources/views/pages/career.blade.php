@@ -1,50 +1,30 @@
 @extends('layouts.app', ['bodyClass' => 'carrer'])
 
 @section('content')
-
-<!-- carrer-us section start -->
-<section class="join-us carrer">
-    <strong> carrer Opportunity</strong>
-    <p>
-          Thank you for your interest in a career with Royal Dogs
-           Chew We may not have any open positions right now, but feel
-            free to submit a general application for us to keep on file.
-            We're always on the hunt for talented people!
-    </p>
-    <div class="join-us-form ">
-        <div class="container">
-            <div class="row">
-              <div class="join-us-form-wrapper">
-                <form action="">
-                    <div class="form-group col-lg-6 col-sm-6">
-                        <input type="email" class="form-control" placeholder="Full Name">
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                        <input type="text" class="form-control"  placeholder="Address">
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                        <input type="text" class="form-control"  placeholder="Email">
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                        <input type="text" class="form-control"  placeholder="phone Number">
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                        <input type="text" class="form-control"  placeholder="Desire Salary">
-                    </div>
-                    <div class="form-group col-lg-6 col-sm-6">
-                      <label for="" class="input-label">
-                        Select Files to Upload </label>
-                        <input type="file" id="file">
-                    </div>
-                   <div class="form-group col-lg-12 col-sm-12">
-                      <button type="btn" class=" btn btn-primary">Apply Now</button>
-                    </div>
-                </form>
-              </div>
-            </div>  
+<section class="mission-sections">
+  <div class="container">
+    <div class="row">
+      <div class="join-us carrer" style="background:none;"> <strong style="color:#004e3b;">Our Product Analysis</strong>
+        <div class="col-sm-6">
+          <div class="mission-wrapper second-wrapper">
+            <h5>Protein and Amino Acid:</h5>
+            <p> Dog cannot survive on diets with protein deficiency. Dietary protein contains 10 different amino acids which dogs cannot make on their own. Our products contain more than 50% protein that has well-balanced percentage of amino acids essential for dogs. </p>
+            <h5>Fats and Fatty Acid:</h5>
+            <p> According to the rule of thumb, higher the fat content, lower the lactose content. Majority of dogs can tolerate any treat that contain less and 2 percentage of lactose. In our products, fat content varies from minimum of 0.7% to maximum of 0.9%, i.e. fat content is below 1 percentage </p>
+            <h5>Energy Needs: </h5>
+            <p> Dogs require balanced percentage of nutrition to stay energetic enough to perform their normal and periodic routines, including playing, growing, exercising and mothering. Generally measured in terms of calories, energy comes from three major components i.e. carbohydrates, protein and fat. In our products, carbohydrate content is 30 to 32 percentage. </p>
+          </div>
         </div>
+        <div class="col-sm-6">
+          <div class="mission-wrapper ">
+            <h5>Moisture:</h5>
+            <p> Hardness and softness of dog chew depends upon its content. Milk containing higher water content makes soft dog chew, and milk containing low water content, makes hard chew. Our products have maximum of 10 to 11 percentage of water contents, thus are harder to chew, which dogs love the most. </p>
+            <img src="{{asset('images/chart.jpg')}}" alt="Ingredients of Royal Dog Chew "> </div>
+        </div>
+        </p>
+      </div>
     </div>
+  </div>
 </section>
-<!-- carrer section end  -->
 
 @endsection

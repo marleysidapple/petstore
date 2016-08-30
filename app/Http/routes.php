@@ -118,7 +118,7 @@ Route::get('our-creation', function() {
 	return view('pages.our-creation');
 });
 
-Route::get('career', function() {
+Route::get('product-analysis', function() {
 	return view('pages.career');
 });
 
@@ -138,6 +138,10 @@ Route::get('shipping', function() {
 
 Route::get('manage-retail', function() {
 	return view('pages.manage-retail');
+});
+
+Route::get('processing-collection', function(){
+	return view('pages.collection');
 });
 
 Route::get('quality-assurance', function() {
